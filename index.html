@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="styles/globalStyles.css" />
+    <link rel="stylesheet" href="./pages/home/style.css" />
+    <link rel="stylesheet" href="styles/searchHeader.css" />
+    <link rel="stylesheet" href="styles/searchMain.css" />
+    <link rel="stylesheet" href="styles/effects.css">
+
+    <title>Git Search</title>
+  </head>
+  <body>
+    <header id="headerContainer">
+      <div class="flexDiv headerDiv">
+        <h1>Git Search</h1>
+        <p>Encontre e se conecte com profissionais de forma rápida e fácil</p>
+        <nav>
+          <span>Achados Recentemente: </span>
+          <ul id="recentSearches">
+            <li class="user">
+              <span>user</span>
+            </li>
+            <li class="user">
+              <span>user</span>
+            </li>
+            <li class="user">
+              <span>user</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="mainContainer">
+      <form class="flexDiv mainForm">
+        <h2>Procurar Usuário</h2>
+        <label for="githubUser">Usuário github</label>
+        <input id="githubUser" type="text" placeholder="Digite um usuário do github aqui...">
+        <button>Ver perfil no github</button>
+        <!-- <button>
+          <div class="container">
+            <div class="wrapper">
+               <div class="loader">
+                  <div class="dot"></div>
+               </div>
+               <div class="loader">
+                  <div class="dot"></div>
+               </div>
+               <div class="loader">
+                  <div class="dot"></div>
+               </div>
+               <div class="loader">
+                  <div class="dot"></div>
+               </div>
+               <div class="loader">
+                  <div class="dot"></div>
+               </div>
+            </div>
+         </div></button> -->
+      </form>
+
+
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<!-- https://api.github.com/users/%7Buser-name -->

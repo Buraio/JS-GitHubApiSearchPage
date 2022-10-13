@@ -1,0 +1,23 @@
+
+.flexDiv {
+  width: 60%;
+  height: 45%;
+  padding: 80px;
+  background-color: #00000005;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.mainForm > input {
+  background-color: var(--color-grey-1);
+  padding: 0 13px;
+}
+
+.mainForm > button {
+  background-color: var(--color-brand-2);
+  opacity: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -15,3 +15,10 @@
     --color-grey-7:  #FFFFFF;
     --color-alert:   #C22554;
 }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: var(--color-grey-7);
+  font-family: 'Inter', sans-serif;
+}

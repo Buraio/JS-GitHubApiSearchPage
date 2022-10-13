@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  justify-content: space-between;
+}
+
+#headerContainer, #mainContainer {
+  width: 50%;
+  max-height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainForm > input, .mainForm > button {
+  width: 75%;
+  height: 38px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  color: var(--color-grey-7);
+  border-radius: 4px;
+}
+
+.mainForm > input, .mainForm > button, .mainForm > label {
+  font-size: 0.875rem;
+}
+
+.headerDiv p, .mainForm > h2 {
+  font-size: 1.25rem;
+}
+
+.headerDiv nav > span, .mainForm > h2 {
+  font-weight: 500;
+}
+
+.animationDiv {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 5px dotted #000;
+  border-radius: 50%;
+  border: 5px dotted orange;
+  animation: spinner 3s linear infinite;
+}
+
+
