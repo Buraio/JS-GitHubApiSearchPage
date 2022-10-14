@@ -1,22 +1,26 @@
-const baseUrl = 'https://api.github.com/users/';
-const myHeaders = { 'content-Type': 'aplication/json' };
+const userRepos = document.querySelector('#userRepos');
 
-function getApi() {
+renderData()
 
-  fetch(`${baseUrl}samuelleao`, {
-    method: 'GET',
-    headers: myHeaders,
-  })
-  .then(response => response.json())
-  .then(response => {
+// Renderizar dados do usuário ENCONTRADO
+function renderData() {
+
+  const user = localStorage.getItem('user');
+  const toObj = JSON.parse(user);
+  const repos = localStorage.getItem('repos');
+  const reposToObj = JSON.parse(repos);
+  console.log(reposToObj)
+
+  userData(toObj);
+
+  userRepos.innerHTML = '';
+  reposToObj.forEach(element => {
+    repoData(element);
   });
 
 }
 
-function renderData() {
-  
-}
-
+// Completo // Dados do perfil
 function userData(userObj) {
 
   const userName = document.querySelector('.userName');
@@ -29,6 +33,7 @@ function userData(userObj) {
 
 }
 
+// Dados dos repositórios
 function repoData(userObj) {
 
   const repository      = document.createElement('li');
@@ -36,6 +41,7 @@ function repoData(userObj) {
   const repoDescription = document.createElement('p');
   const repoLinkDiv     = document.createElement('div');
   const goToRepo        = document.createElement('button');
+  // const linkRepo        = document.createElement('a');
   const repoDemo        = document.createElement('button');
 
   repository.classList.add('repository');
@@ -47,13 +53,16 @@ function repoData(userObj) {
 
   repoName.innerText = userObj.name;
   repoDescription.innerText = userObj.description;
-  goToRepo.innerText = 'Repositório';
   repoDemo.innerText = 'Demo';
+  
+  // linkRepo.href = userObj.repos_url;
+  // console.log(userObj.repos_url)
+  // linkRepo.innerText = 'Repositório';
+  // goToRepo.append(linkRepo);
 
   repoLinkDiv.append(goToRepo, repoDemo);
   repository.append(repoName, repoDescription, repoLinkDiv);
 
-  return repository;
+  userRepos.append(repository);
 
 }
-
