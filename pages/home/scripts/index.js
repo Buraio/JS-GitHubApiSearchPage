@@ -21,13 +21,16 @@ function recentUserIcon(userObj) {
   if (userObj) {
     const liUser = document.createElement('li');
     const userImg = document.createElement('img');
+    const spanDropdown = document.createElement('span');
   
     liUser.classList.add('user');
     userImg.classList.add('avatar');
+    spanDropdown.classList.add('access');
   
     userImg.src = userObj.avatar_url;
+    spanDropdown.innerText = 'Acessar este perfil';
   
-    liUser.append(userImg);
+    liUser.append(userImg, spanDropdown);
     recentUserList.append(liUser);
   }
 }

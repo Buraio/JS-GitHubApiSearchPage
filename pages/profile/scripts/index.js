@@ -53,6 +53,7 @@ function repoData(userObj) {
 
   repoName.innerText = userObj.name;
   repoDescription.innerText = userObj.description;
+  goToRepo.innerText = 'Repositório';
   repoDemo.innerText = 'Demo';
   
   // linkRepo.href = userObj.repos_url;
