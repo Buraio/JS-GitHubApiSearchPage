@@ -22,7 +22,7 @@
       <div class="flexDiv headerDiv">
         <h1>Git Search</h1>
         <p>Encontre e se conecte com profissionais de forma rápida e fácil</p>
-        <nav>
+        <nav class="recents noDisplay">
           <span>Achados Recentemente: </span>
           <ul id="recentSearches">
           </ul>
@@ -34,30 +34,12 @@
         <h2>Procurar Usuário</h2>
         <label for="githubUser">Usuário github</label>
         <input id="githubUser" type="text" placeholder="Digite um usuário do github aqui...">
+        <p class="notFoundMessage noDisplay">Usuário não encontrado</p>
         <button class="searchUser">Ver perfil no github</button>
-        <!-- <button>
-          <div class="container">
-            <div class="wrapper">
-               <div class="loader">
-                  <div class="dot"></div>
-               </div>
-               <div class="loader">
-                  <div class="dot"></div>
-               </div>
-               <div class="loader">
-                  <div class="dot"></div>
-               </div>
-               <div class="loader">
-                  <div class="dot"></div>
-               </div>
-               <div class="loader">
-                  <div class="dot"></div>
-               </div>
-            </div>
-         </div></button> -->
       </form>
     </main>
     <script src="./pages/home/scripts/index.js"></script>
     <script src="./pages/home/scripts/getApi.js"></script>
+    <script src="./pages/home/scripts/minorFunctions.js"></script>
   </body>
 </html>

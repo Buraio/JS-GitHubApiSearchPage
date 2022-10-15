@@ -3,17 +3,24 @@ const myHeaders = { 'content-Type': 'application/json' };
 
 // Busca da API
 function getUserFromApi(user) {
-  
+
   fetch(`${baseUrl}${user}`, {
     method: 'GET',
     headers: myHeaders,
   })
   .then(response => {
-    searchBtn.innerText = 'Carregando...';
-    return response.json();
+    console.log(response)
+    animateBtn();
+    if (response.ok) {
+      message.classList.add('noDisplay');
+      resetBtn()
+      return response.json();
+    }
+    else {
+      userNotFound();
+    }
   })
   .then(response => {
-    searchBtn.innerText = 'Buscar Usuário';
     localStorage.setItem('user', JSON.stringify(response));
     verifyUserArr(response);
     const stringArr = JSON.stringify(userArr);
@@ -38,7 +45,8 @@ function getReposFromApi(user) {
     console.log(resp)
   })
   .then(() => {
-    window.location.replace('pages/profile/index.html');
+    resetBtn();
+    window.location.replace('pages/profile/profile.html');
   });
 
 }
