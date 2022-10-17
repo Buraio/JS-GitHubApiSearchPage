@@ -10,7 +10,6 @@ function getUserFromApi(user) {
   })
   .then(response => {
     console.log(response)
-    animateBtn();
     if (response.ok) {
       message.classList.add('noDisplay');
       // resetBtn()
@@ -42,9 +41,14 @@ function getReposFromApi(user) {
   })
   .then(resp => {
     localStorage.setItem('repos', JSON.stringify(resp));
-    window.location.replace('pages/profile/profile.html');
-    resetBtn();
     console.log(resp)
   })
+  
+  setTimeout(() => {
+
+    resetBtn();
+    window.location.replace('pages/profile/profile.html');
+
+  }, 2000)
 
 }

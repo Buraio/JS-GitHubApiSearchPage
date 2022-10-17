@@ -12,11 +12,11 @@ localStorageRecentUsers();
 // Evento de pesquisa de usuário
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
+  animateBtn();
   const resp = input.value;
   main(resp);
 })
 
-// Completo // Ícones dos usuários
 function recentUserIcon(userObj) {
   if (userObj) {
     const liUser = document.createElement('li');

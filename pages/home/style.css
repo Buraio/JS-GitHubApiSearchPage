@@ -34,16 +34,6 @@ body {
   font-weight: 500;
 }
 
-.animationDiv {
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border: 5px dotted #000;
-  border-radius: 50%;
-  border: 5px dotted orange;
-  animation: spinner 3s linear infinite;
-}
-
 .avatar {
   width: 100%;
   border-radius: 50%;
