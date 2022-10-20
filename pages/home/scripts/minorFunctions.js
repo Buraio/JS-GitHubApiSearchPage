@@ -1,8 +1,3 @@
-function main(response) {
-  getReposFromApi(response);
-  getUserFromApi(response);
-}
-
 function animateBtn() {
   searchBtn.innerHTML = '';
   animateImg.classList.add('loader');

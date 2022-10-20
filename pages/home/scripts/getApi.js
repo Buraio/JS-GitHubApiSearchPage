@@ -12,7 +12,10 @@ function getUserFromApi(user) {
     console.log(response)
     if (response.ok) {
       message.classList.add('noDisplay');
-      // resetBtn()
+      setTimeout(() => {
+        resetBtn();
+        window.location.replace('pages/profile/profile.html');
+      }, 500)
       return response.json();
     }
     else {
@@ -20,35 +23,16 @@ function getUserFromApi(user) {
     }
   })
   .then(response => {
-    localStorage.setItem('user', JSON.stringify(response));
+    if (response) {
+      localStorage.setItem('user', JSON.stringify(response));
+    }
     verifyUserArr(response);
     const stringArr = JSON.stringify(userArr);
     localStorage.setItem('userArr', stringArr);
-    recentUserList.innerHTML = '';
-    createUserElement(userArr);
+    setTimeout(() => {
+      recentUserList.innerHTML = '';
+      createUserElement(userArr);
+    }, 1000);
   })
-
-}
-
-function getReposFromApi(user) {
-
-  fetch(`${baseUrl}${user}/repos`, {
-    method: 'GET',
-    headers: myHeaders,
-  })
-  .then(resp => {
-    return resp.json()
-  })
-  .then(resp => {
-    localStorage.setItem('repos', JSON.stringify(resp));
-    console.log(resp)
-  })
-  
-  setTimeout(() => {
-
-    resetBtn();
-    window.location.replace('pages/profile/profile.html');
-
-  }, 2000)
 
 }

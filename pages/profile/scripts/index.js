@@ -1,26 +1,33 @@
+const myHeaders = { 'Content-Type': 'application/json' };
 const userRepos = document.querySelector('#userRepos');
 
-renderData()
+getReposFromApi()
 
-// Renderizar dados do usuário ENCONTRADO
-function renderData() {
+async function getReposFromApi() {
 
-  const user = localStorage.getItem('user');
-  const toObj = JSON.parse(user);
-  const repos = localStorage.getItem('repos');
-  const reposToObj = JSON.parse(repos);
-  console.log(reposToObj)
+  const userObj = localStorage.getItem('user');
+  const objJson = JSON.parse(userObj);
+  userData(objJson);
+  const repos = await fetch(`${objJson.repos_url}`, {
+    method: 'GET',
+    headers: myHeaders,
+  })
+  const search = await repos.json();
 
-  userData(toObj);
+  renderData(search)
+}
+
+function renderData(arr) {
+
+  repoData(arr);
 
   userRepos.innerHTML = '';
-  reposToObj.forEach(element => {
+  arr.forEach(element => {
     repoData(element);
   });
 
 }
 
-// Completo // Dados do perfil
 function userData(userObj) {
 
   const userName = document.querySelector('.userName');
@@ -33,7 +40,6 @@ function userData(userObj) {
 
 }
 
-// Dados dos repositórios
 function repoData(userObj) {
 
   const repository      = document.createElement('li');
@@ -41,7 +47,6 @@ function repoData(userObj) {
   const repoDescription = document.createElement('p');
   const repoLinkDiv     = document.createElement('div');
   const goToRepo        = document.createElement('button');
-  // const linkRepo        = document.createElement('a');
   const repoDemo        = document.createElement('button');
 
   repository.classList.add('repository');
@@ -55,15 +60,9 @@ function repoData(userObj) {
   repoDescription.innerText = userObj.description;
   goToRepo.innerText = 'Repositório';
   repoDemo.innerText = 'Demo';
-  
-  // linkRepo.href = userObj.repos_url;
-  // console.log(userObj.repos_url)
-  // linkRepo.innerText = 'Repositório';
-  // goToRepo.append(linkRepo);
 
   repoLinkDiv.append(goToRepo, repoDemo);
   repository.append(repoName, repoDescription, repoLinkDiv);
 
   userRepos.append(repository);
-
 }
