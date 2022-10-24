@@ -1,7 +1,6 @@
 const baseUrl   = 'https://api.github.com/users/';
 const myHeaders = { 'content-Type': 'application/json' };
 
-// Busca da API
 function getUserFromApi(user) {
 
   fetch(`${baseUrl}${user}`, {
@@ -34,5 +33,29 @@ function getUserFromApi(user) {
       createUserElement(userArr);
     }, 1000);
   })
+
+}
+
+
+function getReposFromApi(user) {
+
+  fetch(`${baseUrl}${user}/repos`, {
+    method: 'GET',
+    headers: myHeaders,
+  })
+  .then(resp => {
+    return resp.json()
+  })
+  .then(resp => {
+    localStorage.setItem('repos', JSON.stringify(resp));
+    console.log(resp)
+  })
+
+  setTimeout(() => {
+
+    resetBtn();
+    window.location.replace('pages/profile/profile.html');
+
+  }, 2000);
 
 }

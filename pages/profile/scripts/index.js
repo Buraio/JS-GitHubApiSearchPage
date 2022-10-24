@@ -1,21 +1,11 @@
 const myHeaders = { 'Content-Type': 'application/json' };
 const userRepos = document.querySelector('#userRepos');
+const userObj = JSON.parse(localStorage.getItem('user'));
+const repoArr = JSON.parse(localStorage.getItem('repos'));
+console.log(repoArr)
 
-getReposFromApi()
-
-async function getReposFromApi() {
-
-  const userObj = localStorage.getItem('user');
-  const objJson = JSON.parse(userObj);
-  userData(objJson);
-  const repos = await fetch(`${objJson.repos_url}`, {
-    method: 'GET',
-    headers: myHeaders,
-  })
-  const search = await repos.json();
-
-  renderData(search)
-}
+userData(userObj);
+renderData(repoArr);
 
 function renderData(arr) {
 

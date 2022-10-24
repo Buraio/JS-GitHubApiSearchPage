@@ -28,6 +28,7 @@ searchBtn.addEventListener('click', (e) => {
   animateBtn();
   const resp = input.value;
   getUserFromApi(resp);
+  getReposFromApi(resp)
   searchBtn.disabled = true;
 })
 
